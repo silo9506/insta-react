@@ -1,17 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OutletComponent from "./components/templates/OutletComponent";
+import Auth from "./components/templates/Auth";
+import Home from "./components/templates/Home";
 
-import InstaLogin from "./components/pages/insta/Login";
-import InstaSigup from "./components/pages/insta/Sigup";
-import Index from "./components/pages/insta/Index";
-import InstMain from "./components/pages/insta/Main";
-const Router = () => {
+const Router = ({ isAuth }) => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path="/" element={<Index />}></Route>
-        <Route path="/login" element={<InstaLogin />} />
-        <Route path="/signup" element={<InstaSigup />} />
-        <Route path="/main" element={<InstMain />}></Route>
+        {!isAuth ? (
+          <Route path="/" element={<Auth />} />
+        ) : (
+          <Route path="/" element={<OutletComponent />}>
+            <Route index element={<Home />} />
+          </Route>
+        )}
       </Routes>
     </BrowserRouter>
   );
