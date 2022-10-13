@@ -1,31 +1,17 @@
 {
   "files": {
-    "main.css": "/insta-react/static/css/main.e6c13ad2.css",
-    "main.js": "/insta-react/static/js/main.9cca4635.js",
-    "static/js/787.15cfe625.chunk.js": "/insta-react/static/js/787.15cfe625.chunk.js",
+    "main.js": "/insta-react/static/js/main.c6d19728.js",
     "static/media/icon.svg": "/insta-react/static/media/icon.ac7015e70314fc49b01e4b31968546e7.svg",
     "static/media/pluse.svg": "/insta-react/static/media/pluse.c6c267d65b14b7ffd1e5f4eb882e64e8.svg",
     "static/media/heart.svg": "/insta-react/static/media/heart.3fc82dca7526f1e895c76e16ae4f6653.svg",
-    "static/media/miniheart.svg": "/insta-react/static/media/miniheart.b8899b267f9ffbdb866d873df4a0aba9.svg",
     "index.html": "/insta-react/index.html",
-    "static/media/profile.svg": "/insta-react/static/media/profile.ca200d5325660a412e6672b1a7f78fa6.svg",
     "static/media/compass.svg": "/insta-react/static/media/compass.e80826bffed2f417a5831e52c196d43b.svg",
-    "static/media/smail.svg": "/insta-react/static/media/smail.ec7a8db10e8b5b90d782b4d4268be02d.svg",
-    "static/media/X.svg": "/insta-react/static/media/X.7bd0cfb5863150a92efebda1074b85ed.svg",
-    "static/media/close.svg": "/insta-react/static/media/close.37efc73154c928d9b8107245a13203e5.svg",
     "static/media/Search.svg": "/insta-react/static/media/Search.17d7da3eb6f38cd6b28933529c203731.svg",
     "static/media/airplane.svg": "/insta-react/static/media/airplane.e85ba4f06ba008caa326f7b311cc5c90.svg",
     "static/media/home.svg": "/insta-react/static/media/home.0b29f53f729fc1c15a8900ee8effb288.svg",
-    "static/media/arrow02.svg": "/insta-react/static/media/arrow02.863c2f4c1958b9e93bc49674a40f1cf2.svg",
-    "static/media/flage.svg": "/insta-react/static/media/flage.fa60b04ac5c262821ffdd694516f6241.svg",
-    "static/media/comment.svg": "/insta-react/static/media/comment.ae8b37e2d7d3878826bd366b7ebc8bfe.svg",
-    "static/media/moredot.svg": "/insta-react/static/media/moredot.8ae7d0de9b3f522149cf0c351df39f12.svg",
-    "main.e6c13ad2.css.map": "/insta-react/static/css/main.e6c13ad2.css.map",
-    "main.9cca4635.js.map": "/insta-react/static/js/main.9cca4635.js.map",
-    "787.15cfe625.chunk.js.map": "/insta-react/static/js/787.15cfe625.chunk.js.map"
+    "main.c6d19728.js.map": "/insta-react/static/js/main.c6d19728.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.9cca4635.js"
+    "static/js/main.c6d19728.js"
   ]
 }
