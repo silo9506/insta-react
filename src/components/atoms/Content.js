@@ -42,7 +42,7 @@ const Content = ({ contents, isOwner, userData }) => {
         <Header>
           <div>
             <Admin />
-            {userData.displayName}
+            {contents.emailId}
           </div>
           {isOwner && (
             <Btnbox>
