@@ -1,10 +1,8 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { topnavIcons } from "../../Data/svgIcon";
-import Modal from "../atoms/Modal";
+import { ReactComponent as Admin } from "../../assets/profile.svg";
 
-const Topnav = () => {
-  const [onModal, setOnModal] = useState(false);
+const Topnav = ({ setOnModal }) => {
   const onClickIcon = (name) => {
     if (name === "새 게시물") {
       setOnModal(true);
@@ -12,7 +10,6 @@ const Topnav = () => {
   };
   return (
     <Container>
-      {onModal && <Modal />}
       <Contents>
         <Logo>
           <img
@@ -33,6 +30,9 @@ const Topnav = () => {
               {item.icon()}
             </Icon>
           ))}
+          <Icon>
+            <Admin />
+          </Icon>
         </IconBox>
       </Contents>
     </Container>

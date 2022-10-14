@@ -11,6 +11,10 @@ function App() {
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
+        if (user.displayName === null) {
+          const name = user.email.split("@")[0];
+          user.displayName = name;
+        }
         setUserData(user);
         setIsAuth(true);
       } else {
@@ -23,7 +27,11 @@ function App() {
   return (
     <Fragment>
       <GlobalStyles />
-      {userLoding ? <Router isAuth={isAuth} /> : <div>로딩</div>}
+      {userLoding ? (
+        <Router isAuth={isAuth} userData={userData} />
+      ) : (
+        <div>로딩</div>
+      )}
     </Fragment>
   );
 }

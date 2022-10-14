@@ -1,11 +1,12 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { authService } from "../../firebase";
+import { authService, dbService } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
 
 const AuthForm = ({ children, setToggle, toggle }) => {
   const [user, setUser] = useState({
@@ -16,8 +17,8 @@ const AuthForm = ({ children, setToggle, toggle }) => {
 
   const createAccount = async (event) => {
     event.preventDefault();
+    let data = "";
     try {
-      let data = "";
       // 회원가입
       data = await createUserWithEmailAndPassword(
         authService,
@@ -25,10 +26,18 @@ const AuthForm = ({ children, setToggle, toggle }) => {
         user.password
         // user.displayName
       );
+      console.log(data);
+
+      await addDoc(collection(dbService, "users"), {
+        uid: data.user.uid,
+        email: data.user.email,
+        createAt: new Date().toLocaleString(),
+      });
     } catch (error) {
       alert(error.message);
     }
   };
+
   const LoginAccount = async (event) => {
     event.preventDefault();
     try {
