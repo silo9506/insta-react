@@ -10,6 +10,9 @@ const Container = styled.div`
   height: 581px;
   width: 450px;
   position: relative;
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 const Slideimg = styled.img`
   position: absolute;
@@ -26,7 +29,6 @@ const AuthSlide = () => {
   const startTimmer = () => {
     if (slideIndex === authSlideData.length) {
       setSlideIndex(0);
-      console.log("다시0으로");
       return;
     }
     timmer = setTimeout(() => {

@@ -7,8 +7,9 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
+import { ReactComponent as Facebook } from "../../assets/facebook.svg";
 
-const AuthForm = ({ children, setToggle, toggle }) => {
+const AuthForm = ({ setToggle, toggle }) => {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -26,7 +27,6 @@ const AuthForm = ({ children, setToggle, toggle }) => {
         user.password
         // user.displayName
       );
-      console.log(data);
 
       await addDoc(collection(dbService, "users"), {
         uid: data.user.uid,
@@ -48,7 +48,14 @@ const AuthForm = ({ children, setToggle, toggle }) => {
         user.password
       );
     } catch (error) {
-      console.log(error.message);
+      if (error.message === "Firebase: Error (auth/user-not-found).") {
+        alert("존재하지않는 계정입니다.");
+        return;
+      }
+      if (error.message === "Firebase: Error (auth/wrong-password).") {
+        alert("패스위드가 틀립니다.");
+        return;
+      }
     }
   };
 
@@ -57,7 +64,6 @@ const AuthForm = ({ children, setToggle, toggle }) => {
       target: { value, name },
     } = event;
     setUser((prev) => ({ ...prev, [name]: value }));
-    console.log(user);
   };
 
   return (
@@ -120,7 +126,10 @@ const AuthForm = ({ children, setToggle, toggle }) => {
           <h1>또는</h1>
           <div></div>
         </Line>
-        <Provider>Google로 로그인</Provider>
+        <Provider>
+          <Facebook />
+          Facebook으로 로그인
+        </Provider>
       </Wrapper>
       <SignUp>
         {toggle ? (
@@ -155,6 +164,10 @@ const Container = styled.div`
   max-width: 350px;
   flex: 1;
   margin: 50px 0;
+  @media screen and (max-width: 370px) {
+    width: 100%;
+    margin: 10px;
+  }
 `;
 const Logo = styled.img`
   display: block;
@@ -165,12 +178,19 @@ const Logo = styled.img`
 
 const Wrapper = styled.div`
   padding: 40px 40px;
+  padding-bottom: 20px;
   border: 1px solid var(--border-color);
   background-color: #fff;
-  h1 {
+  > h1 {
     text-align: center;
     word-break: keep-all;
     margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #8e8e8e;
+  }
+  @media screen and (max-width: 370px) {
+    padding: 0px;
   }
 `;
 const Form = styled.form`
@@ -183,10 +203,12 @@ const Form = styled.form`
     background-color: var(--base-bgcolor);
     border: 1px solid var(--border-color);
     border-radius: 3px;
+    font-size: 12px;
   }
   input:last-child {
     background-color: rgba(0, 149, 246, 0.3);
     color: #fff;
+    font-size: 14px;
     border: none;
   }
 `;
@@ -201,13 +223,23 @@ const Line = styled.div`
     display: block;
   }
   h1 {
+    margin: 0px;
     padding: 0 18px;
     font-size: 13px;
   }
 `;
 const Provider = styled.div`
+  font-size: 14px;
   text-align: center;
+  color: #385185;
   margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  svg {
+    margin-right: 10px;
+  }
 `;
 const SignUp = styled.div`
   text-align: center;
@@ -215,6 +247,14 @@ const SignUp = styled.div`
   padding: 20px 0px;
   border: 1px solid var(--border-color);
   background-color: #fff;
+  font-size: 14px;
+  button {
+    border: none;
+    background-color: #ffffff;
+    color: #0095f6;
+    font-size: 14px;
+    font-weight: bold;
+  }
 `;
 const DownloadBox = styled.div`
   text-align: center;

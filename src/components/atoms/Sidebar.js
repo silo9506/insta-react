@@ -27,8 +27,6 @@ const Sidebar = ({ userData }) => {
     response();
   }, []);
 
-  console.log(users);
-
   return (
     <Container>
       <Box>
@@ -59,16 +57,35 @@ const Container = styled.div`
   margin-left: 20px;
   position: sticky;
   top: 80px;
+  @media screen and (max-width: 950px) {
+    max-width: 150px;
+  }
+  @media screen and (max-width: 800px) {
+    margin: 5px;
+  }
+  @media screen and (max-width: 450px) {
+    display: none;
+  }
 `;
 
 const Logout = styled.div`
   color: #0095f6;
+  @media screen and (max-width: 950px) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 `;
 const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+  @media screen and (max-width: 950px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   div {
     display: flex;
     align-items: center;

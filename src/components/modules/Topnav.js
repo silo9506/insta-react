@@ -75,6 +75,11 @@ const Inputbox = styled.div`
     border-radius: 8px;
     border: none;
   }
+  @media screen and (max-width: 550px) {
+    input {
+      display: none;
+    }
+  }
 `;
 const IconBox = styled.div`
   display: flex;
@@ -82,7 +87,20 @@ const IconBox = styled.div`
   div + div {
     margin-left: 22px;
   }
+  @media screen and (max-width: 550px) {
+    div + div {
+      margin-left: 5px;
+    }
+    div:last-child {
+      margin-right: 10px;
+    }
+  }
 `;
 const Icon = styled.div`
   cursor: pointer;
+  @media screen and (max-width: 550px) {
+   svg{
+    width:18px;
+    height:18px
+   }
 `;

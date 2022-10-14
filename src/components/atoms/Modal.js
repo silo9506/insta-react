@@ -148,6 +148,9 @@ const ModalBody = styled.div`
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  @media screen and (max-width: 700px) {
+    width: 80%;
+  }
 `;
 
 const Box = styled.div`
@@ -235,6 +238,17 @@ const Header = styled.div`
     top: 50%;
     bottom: 50;
     transform: translate(-50%, -50%);
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 300px) {
+    h1 {
+      display: none;
+    }
   }
 `;
 

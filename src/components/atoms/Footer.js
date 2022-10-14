@@ -9,6 +9,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     margin: 12px 0px;
+    flex-wrap: wrap;
   }
   li {
     color: #8e8e8e;
@@ -19,7 +20,6 @@ const Container = styled.div`
 `;
 
 const Footer = () => {
-  console.log(footerList);
   return (
     <Container>
       <ul>

@@ -18,7 +18,6 @@ const Wrapper = styled.div`
 const Auth = () => {
   const location = useLocation();
   const [toggle, setToggle] = useState(true);
-  console.log(toggle);
   return (
     <Container>
       <Wrapper>

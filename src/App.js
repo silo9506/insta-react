@@ -23,7 +23,6 @@ function App() {
       setUserLoding(true);
     });
   }, []);
-  console.log(userData);
   return (
     <Fragment>
       <GlobalStyles />

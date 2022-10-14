@@ -18,8 +18,6 @@ const Home = () => {
   const { imageUrl, userData } = useOutletContext();
   const [contents, setContents] = useState([]);
 
-  console.log(authService.currentUser);
-
   useEffect(() => {
     const response = async () => {
       const collectionRef = collection(dbService, "content");
@@ -44,8 +42,6 @@ const Home = () => {
     // });
   }, []);
 
-  console.log(contents);
-
   return (
     <Container>
       <Contents>
@@ -66,7 +62,6 @@ const Home = () => {
 export default Home;
 
 const Container = styled.div`
-  min-height: 200vh;
   display: flex;
   justify-content: center;
 `;
@@ -74,4 +69,7 @@ const Container = styled.div`
 const Contents = styled.div`
   max-width: 600px;
   width: 100%;
+  @media screen and (max-width: 800px) {
+    max-width: 300px;
+  }
 `;

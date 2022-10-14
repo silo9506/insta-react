@@ -18,7 +18,6 @@ const Content = ({ contents, isOwner, userData }) => {
   };
   const onClickDelete = async () => {
     const ok = window.confirm(`해당 게시물을 삭제하시겠습니까?`);
-    console.log(ok);
     if (ok) {
       // 삭제
       await deleteDoc(doc(dbService, `content/${contents.id}`));
@@ -37,8 +36,6 @@ const Content = ({ contents, isOwner, userData }) => {
     setNewText(value);
   };
 
-  let Data = new Date();
-  console.log(Data);
   return (
     <Container>
       <Fragment>
@@ -88,7 +85,8 @@ const Content = ({ contents, isOwner, userData }) => {
             ) : (
               <div>
                 <p>
-                  <strong>{contents.emailId}:</strong>
+                  <strong>{contents.emailId}</strong>
+                  <br />
                   {contents.text}
                 </p>
               </div>
@@ -131,9 +129,28 @@ const Imgbox = styled.div`
     width: 600px;
     height: 350px;
   }
+  @media screen and (max-width: 800px) {
+    img {
+      width: 100%;
+    }
+  }
 `;
 
-const Btnbox = styled.div``;
+const Btnbox = styled.div`
+  button {
+    background-color: #0095f6;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  button + button {
+    margin-left: 10px;
+  }
+  button:last-child {
+    background-color: red;
+  }
+`;
 
 const Textbox = styled.div`
   min-height: 150px;
@@ -142,8 +159,6 @@ const Textbox = styled.div`
     padding: 0 10px;
   }
   p {
-    display: flex;
-    align-items: center;
   }
   textarea {
     margin: 0 10px;
@@ -155,6 +170,13 @@ const Textbox = styled.div`
     resize: none;
     outline: none;
     padding: 0px;
+  }
+  input {
+    background-color: #0095f6;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: 600;
   }
 `;
 
