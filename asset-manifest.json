@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.js": "/insta-react/static/js/main.294a3bf1.js",
+    "main.js": "/insta-react/static/js/main.606c0ad7.js",
     "static/media/icon.svg": "/insta-react/static/media/icon.ac7015e70314fc49b01e4b31968546e7.svg",
     "static/media/pluse.svg": "/insta-react/static/media/pluse.c6c267d65b14b7ffd1e5f4eb882e64e8.svg",
     "static/media/heart.svg": "/insta-react/static/media/heart.3fc82dca7526f1e895c76e16ae4f6653.svg",
     "static/media/profile.svg": "/insta-react/static/media/profile.4dfae197c8c3b41dd3d40c36611e5ba3.svg",
     "index.html": "/insta-react/index.html",
+    "static/media/facebook.svg": "/insta-react/static/media/facebook.89012a0871c4c3d4bf68b3376cb19c59.svg",
     "static/media/compass.svg": "/insta-react/static/media/compass.e80826bffed2f417a5831e52c196d43b.svg",
     "static/media/Search.svg": "/insta-react/static/media/Search.17d7da3eb6f38cd6b28933529c203731.svg",
     "static/media/X.svg": "/insta-react/static/media/X.193919bccd2bfe096120052d1b9486a3.svg",
@@ -13,9 +14,9 @@
     "static/media/home.svg": "/insta-react/static/media/home.0b29f53f729fc1c15a8900ee8effb288.svg",
     "static/media/flage.svg": "/insta-react/static/media/flage.fa60b04ac5c262821ffdd694516f6241.svg",
     "static/media/comment.svg": "/insta-react/static/media/comment.ae8b37e2d7d3878826bd366b7ebc8bfe.svg",
-    "main.294a3bf1.js.map": "/insta-react/static/js/main.294a3bf1.js.map"
+    "main.606c0ad7.js.map": "/insta-react/static/js/main.606c0ad7.js.map"
   },
   "entrypoints": [
-    "static/js/main.294a3bf1.js"
+    "static/js/main.606c0ad7.js"
   ]
 }
