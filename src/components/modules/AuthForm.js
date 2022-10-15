@@ -75,12 +75,12 @@ const AuthForm = ({ setToggle, toggle }) => {
       const provider = new FacebookAuthProvider();
       data = await signInWithPopup(authService, provider);
 
-      console.log(data);
-      await addDoc(collection(dbService, "users"), {
-        uid: data.user.uid,
-        email: data._tokenResponse.email,
-        createAt: new Date().toLocaleString(),
-      });
+      // console.log(data);
+      // await addDoc(collection(dbService, "users"), {
+      //   uid: data.user.uid,
+      //   email: data._tokenResponse.email,
+      //   createAt: new Date().toLocaleString(),
+      // });
     } catch (error) {
       alert(error.message);
     }

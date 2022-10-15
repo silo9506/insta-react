@@ -55,11 +55,16 @@ const Modal = ({ setOnModal, userData, setImageUrl, imageUrl }) => {
       const response = await uploadString(fileRef, imageUrl, "data_url");
       fileUrl = await getDownloadURL(response.ref);
     }
+    if (userData.email === null) {
+    }
     await addDoc(collection(dbService, "content"), {
       text: contentText,
       createdAt: new Date().toLocaleString(),
       creatorId: userData.uid,
-      emailId: userData.email.split("@")[0],
+      emailId:
+        userData.email === null
+          ? userData.displayName
+          : userData.email.split("@")[0],
       imageUrl: fileUrl,
     });
     setOnModal(false);
