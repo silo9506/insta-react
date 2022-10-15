@@ -11,6 +11,7 @@ const Home = () => {
   const { imageUrl, userData } = useOutletContext();
   const [contents, setContents] = useState([]);
 
+  console.log(userData);
   const onClickLogout = () => {
     authService.signOut();
   };
@@ -55,6 +56,7 @@ export default Home;
 
 const Container = styled.div`
   display: flex;
+  min-height: 100vh;
   justify-content: center;
 `;
 
