@@ -70,6 +70,7 @@ const Container = styled.div`
 
 const Logout = styled.div`
   color: #0095f6;
+  cursor: pointer;
   @media screen and (max-width: 950px) {
     display: flex;
     width: 100%;

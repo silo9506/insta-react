@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+
 import Footer from "../atoms/Footer";
 import AuthForm from "../modules/AuthForm";
 import AuthSlide from "../modules/AuthSlide";

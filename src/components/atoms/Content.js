@@ -84,11 +84,8 @@ const Content = ({ contents, isOwner, userData }) => {
               </div>
             ) : (
               <div>
-                <p>
-                  <strong>{contents.emailId}</strong>
-                  <br />
-                  {contents.text}
-                </p>
+                <span>{contents.emailId}</span>&nbsp;
+                <p> {contents.text}</p>
               </div>
             )}
           </Textbox>
@@ -102,7 +99,6 @@ export default Content;
 
 const Container = styled.div`
   background-color: #ffffff;
-
   width: 100%;
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -126,8 +122,8 @@ const Header = styled.div`
 `;
 const Imgbox = styled.div`
   img {
-    width: 600px;
-    height: 350px;
+    width: 450px;
+    height: 450px;
   }
   @media screen and (max-width: 800px) {
     img {
@@ -143,6 +139,7 @@ const Btnbox = styled.div`
     border: 1px solid transparent;
     border-radius: 4px;
     font-weight: 600;
+    cursor: pointer;
   }
   button + button {
     margin-left: 10px;
@@ -158,7 +155,12 @@ const Textbox = styled.div`
     display: flex;
     padding: 0 10px;
   }
+  span {
+    font-size: 13px;
+    font-weight: 600;
+  }
   p {
+    font-size: 14px;
   }
   textarea {
     margin: 0 10px;

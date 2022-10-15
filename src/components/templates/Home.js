@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { useOutletContext } from "react-router-dom";
 import { authService, dbService } from "../../firebase";
-import {
-  collection,
-  getDocs,
-  onSnapshot,
-  orderBy,
-  query,
-  where,
-} from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Content from "../atoms/Content";
 import Sidebar from "../atoms/Sidebar";
@@ -17,6 +10,10 @@ import { getAuth } from "firebase/auth";
 const Home = () => {
   const { imageUrl, userData } = useOutletContext();
   const [contents, setContents] = useState([]);
+
+  const onClickLogout = () => {
+    authService.signOut();
+  };
 
   useEffect(() => {
     const response = async () => {
@@ -32,14 +29,6 @@ const Home = () => {
       });
     };
     response();
-
-    // onSnapshot(collection(dbService, "content"), (snapshot) => {
-    //   const contentArray = snapshot.docs.map((doc) => ({
-    //     id: doc.id,
-    //     ...doc.data(),
-    //   }));
-    //   setContents(contentArray);
-    // });
   }, []);
 
   return (
@@ -55,6 +44,9 @@ const Home = () => {
         ))}
       </Contents>
       <Sidebar userData={userData} />
+      <Mobile onClick={onClickLogout}>
+        <p>Log out</p>
+      </Mobile>
     </Container>
   );
 };
@@ -67,9 +59,35 @@ const Container = styled.div`
 `;
 
 const Contents = styled.div`
-  max-width: 600px;
+  max-width: 450px;
   width: 100%;
   @media screen and (max-width: 800px) {
     max-width: 300px;
+  }
+`;
+
+const Mobile = styled.div`
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #0095f6;
+  background-color: #f35369;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  color: white;
+  display: none;
+  opacity: 0.9;
+  p {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+  }
+  @media screen and (max-width: 450px) {
+    display: block;
   }
 `;

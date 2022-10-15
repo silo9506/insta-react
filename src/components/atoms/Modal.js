@@ -46,7 +46,10 @@ const Modal = ({ setOnModal, userData, setImageUrl, imageUrl }) => {
 
   const onClickShare = async () => {
     let fileUrl = "";
-    if (imageUrl === null) alert("사진을 첨부해주세요");
+    if (imageUrl === null) {
+      alert("사진을 첨부해주세요");
+      return;
+    }
     if (imageUrl !== null) {
       const fileRef = ref(storage, `${userData.uid}/${uuidv4()}`);
       const response = await uploadString(fileRef, imageUrl, "data_url");
@@ -187,12 +190,8 @@ const ImgWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100%; */
   align-items: center;
   img {
-    /* max-height: 540px;
-    height: 100%;
-    width: 100%; */
     height: 100%;
     width: 100%;
   }

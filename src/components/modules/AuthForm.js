@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { authService, dbService } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
+  FacebookAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { ReactComponent as Facebook } from "../../assets/facebook.svg";
@@ -64,6 +66,11 @@ const AuthForm = ({ setToggle, toggle }) => {
       target: { value, name },
     } = event;
     setUser((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const onClickProvider = async () => {
+    const provider = new FacebookAuthProvider();
+    const data = await signInWithPopup(authService, provider);
   };
 
   return (
@@ -126,7 +133,7 @@ const AuthForm = ({ setToggle, toggle }) => {
           <h1>또는</h1>
           <div></div>
         </Line>
-        <Provider>
+        <Provider onClick={onClickProvider}>
           <Facebook />
           Facebook으로 로그인
         </Provider>
@@ -229,6 +236,7 @@ const Line = styled.div`
   }
 `;
 const Provider = styled.div`
+  cursor: pointer;
   font-size: 14px;
   text-align: center;
   color: #385185;
