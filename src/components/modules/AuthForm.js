@@ -69,8 +69,21 @@ const AuthForm = ({ setToggle, toggle }) => {
   };
 
   const onClickProvider = async () => {
-    const provider = new FacebookAuthProvider();
-    const data = await signInWithPopup(authService, provider);
+    //페이스북 로그인
+    try {
+      let data = "";
+      const provider = new FacebookAuthProvider();
+      data = await signInWithPopup(authService, provider);
+
+      console.log(data);
+      await addDoc(collection(dbService, "users"), {
+        uid: data.user.uid,
+        email: data.user.email,
+        createAt: new Date().toLocaleString(),
+      });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
