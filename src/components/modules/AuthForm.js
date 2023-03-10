@@ -155,12 +155,22 @@ const AuthForm = ({ setToggle, toggle }) => {
         {toggle ? (
           <Fragment>
             계정이 없으신가요?
-            <button onClick={() => setToggle(false)}>가입하기</button>
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => setToggle(false)}
+            >
+              가입하기
+            </button>
           </Fragment>
         ) : (
           <Fragment>
             계정이 있으신가요?
-            <button onClick={() => setToggle(true)}>로그인</button>
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => setToggle(true)}
+            >
+              로그인
+            </button>
           </Fragment>
         )}
       </SignUp>
@@ -226,10 +236,11 @@ const Form = styled.form`
     font-size: 12px;
   }
   input:last-child {
-    background-color: rgba(0, 149, 246, 0.3);
+    background-color: rgba(0, 149, 246, 0.8);
     color: #fff;
     font-size: 14px;
     border: none;
+    cursor: pointer;
   }
 `;
 const Line = styled.div`

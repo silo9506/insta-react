@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { topnavIcons } from "../../Data/svgIcon";
 import { ReactComponent as Admin } from "../../assets/profile.svg";
+import { ReactComponent as New } from "../../assets/new.svg";
 
 const Topnav = ({ setOnModal }) => {
-  const onClickIcon = (name) => {
-    if (name === "새 게시물") {
-      setOnModal(true);
-    }
+  const onClickIcon = () => {
+    setOnModal(true);
   };
   return (
     <Container>
@@ -21,7 +20,11 @@ const Topnav = ({ setOnModal }) => {
           <input placeholder="검색" />
         </Inputbox>
         <IconBox>
-          {topnavIcons.map((item) => (
+          새로운 게시물
+          <Icon>
+            <New onClick={onClickIcon} />
+          </Icon>
+          {/* {topnavIcons.map((item) => (
             <Icon
               onClick={(name) => onClickIcon(item.name)}
               key={item.name}
@@ -29,10 +32,10 @@ const Topnav = ({ setOnModal }) => {
             >
               {item.icon()}
             </Icon>
-          ))}
-          <Icon>
+          ))} */}
+          {/* <Icon>
             <Admin />
-          </Icon>
+          </Icon> */}
         </IconBox>
       </Contents>
     </Container>
@@ -82,7 +85,9 @@ const Inputbox = styled.div`
   }
 `;
 const IconBox = styled.div`
+  font-size: 10px;
   display: flex;
+  border-radius: 5px;
   align-items: center;
   div + div {
     margin-left: 22px;
@@ -97,10 +102,14 @@ const IconBox = styled.div`
   }
 `;
 const Icon = styled.div`
+  display:flex;
+  align-items: center;
   cursor: pointer;
+  padding-left: 3px;
   @media screen and (max-width: 550px) {
    svg{
     width:18px;
     height:18px
    }
+   path{}
 `;
